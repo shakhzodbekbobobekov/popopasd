@@ -2,8 +2,8 @@ import React from "react";
 
 function Header() {
   return (
-    <nav>
-      <div className="nav-wrapper">
+    <nav className="#2196f3 blue">
+      <div className="nav-wrapper container ">
         <a href="#" className="brand-logo">
           React
         </a>
