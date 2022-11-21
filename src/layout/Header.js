@@ -5,11 +5,11 @@ function Header() {
     <nav className="#2196f3 blue">
       <div className="nav-wrapper container ">
         <a href="#" className="brand-logo">
-          React
+          React Shop
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
-            <a href="sass.html">Movie</a>
+            <a href="#">Repo</a>
           </li>
         </ul>
       </div>

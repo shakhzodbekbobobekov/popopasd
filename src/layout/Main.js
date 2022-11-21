@@ -1,16 +1,7 @@
-import React, { useEffect, useState } from "react";
+import Movies from "../components/Movies";
 
 function Main() {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    fetch("https://www.omdbapi.com/?apikey=329ffa13&s=panda")
-      .then((response) => response.json())
-      .then((data) => setData(data));
-  }, [setData]);
-
-  console.log(data);
-  return <div className="contain container ">Main</div>;
+  return <div className="contain container "></div>;
 }
 
 export default Main;
