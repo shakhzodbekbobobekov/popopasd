@@ -1,10 +1,14 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { API_KEY, API_URL } from "./config";
-import React from "react";
+import Loader from "./Loader";
+import GoodList from "./GoodList";
+import Cart from "./Cart";
 
 function Shop() {
   const [goods, setGoods] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [order, setOrder] = useState([]);
 
   useEffect(() => {
     fetch(API_URL, {
@@ -14,14 +18,15 @@ function Shop() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setGoods(data.featured) && setGoods(data.featured);
+        data.featured && setGoods(data.featured);
         setLoading(false);
       });
-  }, [goods]);
+  }, []);
 
   return (
-    <div className="content">
-      <h1>Shops</h1>
+    <div className="content container">
+      <Cart quantity={order.length} />
+      {loading ? <Loader /> : <GoodList goods={goods} />}
     </div>
   );
 }
