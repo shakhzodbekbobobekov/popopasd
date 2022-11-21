@@ -2,7 +2,7 @@ import React from "react";
 import GoodItem from "./GoodItem";
 
 function GoodList(props) {
-  const { goods = [] } = props;
+  const { goods = [], addToBasket } = props;
 
   if (!goods.length) {
     return <h3>Nothing here</h3>;
@@ -11,7 +11,7 @@ function GoodList(props) {
     <div className="goods">
       {goods &&
         goods.map((item) => {
-          return <GoodItem key={item.id} {...item} />;
+          return <GoodItem key={item.id} {...item} addToBasket={addToBasket} />;
         })}
     </div>
   );

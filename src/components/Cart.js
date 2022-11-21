@@ -1,7 +1,7 @@
 import React from "react";
 
 function Cart(props) {
-  const { quantity } = props;
+  const { quantity = 0 } = props;
   return (
     <div className="cart">
       <i className=" material-icons add_shopping_cart">add_shopping_cart</i>
