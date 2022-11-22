@@ -4,15 +4,16 @@ import { API_KEY, API_URL } from "./config";
 import Loader from "./Loader";
 import GoodList from "./GoodList";
 import Cart from "./Cart";
+import BasketList from "./BasketList";
 
 function Shop() {
   const [goods, setGoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState([]);
+  const [isBasketShow, setBasketShow] = useState(false);
 
   const addToBasket = (item) => {
     const itemIndex = order.findIndex((orderItem) => orderItem.id === item.id);
-    console.log(itemIndex);
     if (itemIndex < 0) {
       const newItem = {
         ...item,
@@ -34,7 +35,11 @@ function Shop() {
       setOrder(newOrder);
     }
   };
-  // console.log(order);
+
+  const handleBasketShow = () => {
+    setBasketShow(!isBasketShow);
+  };
+
   useEffect(() => {
     fetch(API_URL, {
       headers: {
@@ -50,11 +55,18 @@ function Shop() {
 
   return (
     <div className="content container">
-      <Cart quantity={order.length} />
+      <Cart
+        quantity={order.length}
+        isBasketShow={isBasketShow}
+        handleBasketShow={handleBasketShow}
+      />
       {loading ? (
         <Loader />
       ) : (
         <GoodList goods={goods} addToBasket={addToBasket} />
+      )}
+      {isBasketShow && (
+        <BasketList order={order} handleBasketShow={handleBasketShow} />
       )}
     </div>
   );

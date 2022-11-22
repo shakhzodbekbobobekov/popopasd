@@ -32,6 +32,25 @@
   z-index: 999999;
 }
 
+.basket-list {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 50rem;
+  max-width: 95%;
+  box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.5);
+}
+
+.basket-close {
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #fff;
+}
+
 @media (min-width: 767px) {
   .cart {
     top: 5rem;
