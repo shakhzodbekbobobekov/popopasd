@@ -32,6 +32,15 @@
   z-index: 999999;
 }
 
+.add_shopping_cart .bsk {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .basket-list {
   position: fixed;
   top: 50%;
@@ -41,6 +50,7 @@
   width: 50rem;
   max-width: 95%;
   box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.5);
+  animation: show 0.5s ease-in;
 }
 
 .basket-close {
@@ -59,5 +69,16 @@
   .cart {
     top: 5rem;
     bottom: unset;
+  }
+}
+
+@keyframes show {
+  from {
+    top: 70%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
   }
 }
