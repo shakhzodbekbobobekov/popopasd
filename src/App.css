@@ -51,6 +51,10 @@
   color: #fff;
 }
 
+.basket-delete {
+  cursor: pointer;
+}
+
 @media (min-width: 767px) {
   .cart {
     top: 5rem;
