@@ -40,6 +40,11 @@ function Shop() {
     setBasketShow(!isBasketShow);
   };
 
+  const removeFromBasket = (itemID) => {
+    const newOrder = order.filter((item) => item.id !== itemID);
+    setOrder(newOrder);
+  };
+
   useEffect(() => {
     fetch(API_URL, {
       headers: {
@@ -66,7 +71,11 @@ function Shop() {
         <GoodList goods={goods} addToBasket={addToBasket} />
       )}
       {isBasketShow && (
-        <BasketList order={order} handleBasketShow={handleBasketShow} />
+        <BasketList
+          order={order}
+          handleBasketShow={handleBasketShow}
+          removeFromBasket={removeFromBasket}
+        />
       )}
     </div>
   );
